@@ -9,6 +9,7 @@ const numApart = Math.ceil(k2 / (n2 * p2));
 const kMax = Math.floor((+k2 - 1) / (+m * (+p2 - 1) + +n2 - 1));
 const kMin = Math.ceil(+k2 / (+m * (+p2 - 1) + +n2));
 const numApartInP = kMin * +m;
+console.log(kMax, kMin);
 
 const nAll = (m * p2) + +n2;
 
@@ -41,10 +42,7 @@ if (kMin === kMax) {
   }
 }
 
-
-
 if (+n2 === 1) {
-
   if (+m >= +k1) {
     result = '1 0';
   } else if (+m === 1) {
@@ -76,10 +74,6 @@ if (+n2 === 1) {
   }
 }
 
-// if (+p2 === 1 && (k2 * m) > +k1) {
-//   result = '1 0';
-// }
-
 if (+p2 === 1 && +n2 === 1 && +k1 < +k2) {
   result = '1 1';
 }
@@ -102,8 +96,8 @@ if (+k2 < +n2) {
   result = '-1 -1'
 }
 
-// if (+k2 === +k1) {
-//   result = `${p2} ${n2}`;
-// }
+if (kMin > kMax) {
+  result = '-1 -1';
+}
 
 fs.writeFileSync('output.txt', result.toString());
