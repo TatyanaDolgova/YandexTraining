@@ -36,6 +36,10 @@ if (determinant !== 0) {
     result = '0';
   }
 
+} else if (a === 0 && b === 0 && e === 0) {
+  const k = -c / d;
+  const bValue = f / d;
+  result = `1 ${k} ${bValue}`;
 } else {
   const k = -a / b;
   const bValue = e / b;
