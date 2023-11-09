@@ -19,11 +19,26 @@ if (determinant !== 0) {
 } else if ((a === c && b === d && e !== f) || (a !== c && b !== d && e === f && a !== d) ||
   (a === 0 && b === 0 && e !== 0) || (c === 0 && d === 0 && f !== 0)) {
   result = '0';
+} else if (a === 0 && b === 0 && e === 0 && (c !== 0 || d !== 0) && (c === 0 || d === 0)) {
+  if (c) {
+    const x = f / c;
+    result = `3 ${x}`;
+  }
+  if (d) {
+    const y = f / d;
+    result = `4 ${y}`;
+  }
 } else if (a === 0 && c === 0) {
   const y1 = e / b;
   const y2 = f / d;
+  console.log(y1, y2)
   if (y1 === y2) {
     result = `4 ${y1}`;
+
+  } else if (!y2 && y1 && !d) {
+    result = `4 ${y1}`;
+  } else if (!y1 && y2 && !b) {
+    result = `4 ${y2}`;
   } else {
     result = '0';
   }
@@ -32,6 +47,10 @@ if (determinant !== 0) {
   const x2 = f / c;
   if (x1 === x2) {
     result = `3 ${x1}`;
+  } else if (!x2 && x1 && !c) {
+    result = `3 ${x1}`;
+  } else if (!x1 && x2 && !a) {
+    result = `3 ${x2}`;
   } else {
     result = '0';
   }
