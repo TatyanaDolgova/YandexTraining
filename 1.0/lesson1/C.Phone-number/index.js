@@ -31,8 +31,6 @@ newPhoneArr.forEach((item) => {
     result.push('NO');
   }
 })
-console.log(newPhoneArr);
 result = result.join('\n');
-console.log(currentPhone);
 
 fs.writeFileSync('output.txt', result.toString());

@@ -31,7 +31,6 @@ if (determinant !== 0) {
 } else if (a === 0 && c === 0) {
   const y1 = e / b;
   const y2 = f / d;
-  console.log(y1, y2)
   if (y1 === y2) {
     result = `4 ${y1}`;
 

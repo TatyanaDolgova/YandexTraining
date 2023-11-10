@@ -9,14 +9,12 @@ const numApart = Math.ceil(k2 / (n2 * p2));
 const kMax = Math.floor((+k2 - 1) / (+m * (+p2 - 1) + +n2 - 1));
 const kMin = Math.ceil(+k2 / (+m * (+p2 - 1) + +n2));
 const numApartInP = kMin * +m;
-console.log(kMax, kMin);
 
 const nAll = (m * p2) + +n2;
 
 if (kMin === kMax) {
   const p1 = Math.ceil(k1 / numApartInP);
   let n1 = Math.ceil((k1 % numApartInP) / kMax);
-  console.log((k1 % numApartInP) / kMax)
 
   if (n1 === 0) {
     n1 = m;
