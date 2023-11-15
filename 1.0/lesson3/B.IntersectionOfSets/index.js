@@ -36,14 +36,4 @@ map.forEach((value, key) => {
     result.push(+key);
   }
 })
-
-// for (let i = 0; i < arr1.length; i++) {
-//   for (let j = 0; j < arr2.length; j++) {
-//     if (arr1[i] === arr2[j]) {
-//       result.push(arr1[i]);
-//       break;
-//     }
-//   }
-// }
-
 fs.writeFileSync('output.txt', result.sort((a, b) => a - b).join(' ').toString());
