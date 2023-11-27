@@ -39,3 +39,40 @@
 //                                       0
 
 //                                       0
+const fs = require('fs');
+const data = fs.readFileSync('input.txt', { encoding: 'utf8' });
+const list = data.trim().split('\r\n');
+const count = list[0].split(' ');
+const map = new Map();
+const array = [[], [], []];
+
+for (let i = 1; i < list.length; i += 1) {
+  if (i < 1 + +count[0]) {
+    map.set(list[i], 'Anna');
+  } else {
+    if (map.has(list[i])) {
+      map.set(list[i], true);
+    } else {
+      map.set(list[i], 'Boris');
+    }
+  }
+}
+
+for (let i of map) {
+  if (i[1] === 'Anna') {
+    array[0].push(i[0]);
+  } else if (i[1] === 'Boris') {
+    array[1].push(i[0]);
+  } else if (i[1] === true) {
+    array[2].push(i[0]);
+  }
+}
+const result = `${array[2].length}
+${array[2].sort((a, b) => a - b).join(' ')}
+${array[0].length}
+${array[0].sort((a, b) => a - b).join(' ')}
+${array[1].length}
+${array[1].sort((a, b) => a - b).join(' ')}
+`
+
+fs.writeFileSync('output.txt', result.toString());
