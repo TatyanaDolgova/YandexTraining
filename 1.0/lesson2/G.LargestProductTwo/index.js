@@ -1,5 +1,4 @@
 const fs = require('fs');
-
 const data = fs.readFileSync('input.txt', { encoding: 'utf8' });
 let nums = data.trim().split(' ');
 nums = nums.map((item) => Number(item.trim()));
@@ -8,7 +7,6 @@ let max1 = 0;
 let max2 = 0;
 let negativeMax1 = 0;
 let negativeMax2 = 0;
-
 
 if (nums[0] > nums[1]) {
   max1 = nums[0];
