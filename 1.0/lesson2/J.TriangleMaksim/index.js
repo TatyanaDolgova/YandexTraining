@@ -34,9 +34,6 @@ for (let i = 1; i < notes.length; i += 1) {
       }
     }
   }
-
-  // console.log(min, max);
-  // console.log(num, prev, notes[i][1]);
 }
 
 result = `${min} ${max}`;
