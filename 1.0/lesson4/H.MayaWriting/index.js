@@ -109,5 +109,3 @@ for (let i = word.length; i < string.length; i++) {
 }
 
 fs.writeFileSync('output.txt', result.toString());
-
-
