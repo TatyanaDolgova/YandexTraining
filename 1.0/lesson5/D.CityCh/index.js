@@ -38,14 +38,11 @@ let j = 1;
 
 while (i < arrDist.length - 1 && j < arrDist.length) {
   if (arrDist[j] - arrDist[i] > number) {
-    console.log(arrDist[i], arrDist[j]);
-    console.log(arrDist.length - j);
     result += arrDist.length - j;
     i++;
   } else {
     j++;
   }
 }
-console.log(arrDist);
 
 fs.writeFileSync('output.txt', result.toString());
