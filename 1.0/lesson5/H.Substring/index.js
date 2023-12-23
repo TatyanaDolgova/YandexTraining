@@ -22,3 +22,39 @@
 // Вывод
 // 5 2
 // 4 1
+const fs = require('fs');
+
+const data = fs.readFileSync('input.txt', { encoding: 'utf8' });
+const list = data.toString().trim().split('\r\n');
+const len = +list[0].split(' ')[1]
+let sim = list[1].split('');
+let maxLength = 0;
+let IRes = 0;
+
+const dict = new Map();
+
+let i = 0;
+let j = 0;
+
+while (i < sim.length && j < sim.length) {
+  if (!dict.has(sim[j])) {
+    dict.set(sim[j], 0);
+  }
+  let value = dict.get(sim[j]) + 1;
+  if (value <= len) {
+    dict.set(sim[j], value);
+    j++;
+  } else {
+    let value2 = dict.get(sim[i]) - 1;
+    dict.set(sim[i], value2);
+    i++;
+  }
+  if (j - i > maxLength) {
+    maxLength = j - i;
+    IRes = i + 1;
+  }
+}
+
+result = `${maxLength} ${IRes}`;
+
+fs.writeFileSync('output.txt', result.toString());
