@@ -61,4 +61,3 @@ while (i < action.length) {
   i++;
 }
 
-fs.writeFileSync('output.txt', result.toString());
