@@ -38,12 +38,10 @@ const binarySearch = () => {
 
   while (left < right) {
     mid = Math.floor((right + left) / 2);
-    console.log(right, mid, left);
 
     let countW = Math.floor(mid / w);
     let countH = Math.floor(mid / h);
-    console.log(countH * countW, mid)
-    // let allHeight = Math.ceil(k / count) * h;
+
     if(countH * countW >= k) {
       right = mid;
     } else {
