@@ -36,36 +36,30 @@
 const fs = require('fs');
 
 const data = fs.readFileSync('input.txt', { encoding: 'utf8' });
-const list = data.toString().trim().split(' ');
+const [n, a, b, w, h] = data.toString().trim().split(' ').map(BigInt);
 
-const n = +list[0];
-const a = +list[1];
-const b = +list[2];
-const w = +list[3];
-const h = +list[4];
-
-const binarySearch = () => {
-  let right = Math.max(w, h);
-  let countW = Math.
-  let left = 0;
+const binarySearch = (one, two) => {
+  let right = w / 2n + 1n;
+  let left = 0n;
   let mid;
 
-  while (left < right) {
-    mid = Math.floor((right + left) / 2);
+  while (right - left > 1n) {
+    mid = (right + left) / 2n;
 
-    let countW = Math.floor(mid / w);
-    let countH = Math.floor(mid / h);
+    const wElem = one + 2n * mid;
+    const hElem = two + 2n * mid;
 
-    if (countH * countW >= k) {
-      right = mid;
+    const count = (w / wElem) * (h / hElem);
+    const count2 = (w / hElem) * (h / wElem);
+
+    if (count >= n || count2 >= n) {
+      left = mid;
     } else {
-      left = mid + 1;
+      right = mid;
     }
   }
+
   return left;
 }
-
-binarySearch(w, a);
-
-let result = binarySearch();
+let result = binarySearch(a, b);
 fs.writeFileSync('output.txt', result.toString());
