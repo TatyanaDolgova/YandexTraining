@@ -37,7 +37,7 @@ const binarySearch = (n, x, y) => {
     const countY = mid / y;
 
     const countXY = Math.floor((mid - Math.min(x, y)) / x) + Math.floor((mid - Math.min(x, y)) / y) + 1;
-    console.log(mid, countXY)
+
     if (countX >= n || countY >= n || countXY >= n) {
       right = mid;
     } else {
