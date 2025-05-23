@@ -95,4 +95,4 @@ if (iteractor === 0) {
   result = iteractor
 }
 
-fs.writeFileSync("output.txt", String(result));
+fs.writeFileSync("output.txt", String(result)); 
